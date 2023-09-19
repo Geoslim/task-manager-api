@@ -23,6 +23,7 @@ class AuthService
     }
 
     /**
+     * Create a new user
      * @param array $data
      * @return mixed
      */
@@ -52,12 +53,21 @@ class AuthService
         return $response;
     }
 
-    public function authToken($user): string
+    /**
+     * Generate authentication token
+     * @param User $user
+     * @return string
+     */
+    public function authToken(User $user): string
     {
         return $user->createToken($user->email)->plainTextToken;
     }
 
-    public function logout($user): void
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function logout(User $user): void
     {
         $user->tokens()->delete();
     }
