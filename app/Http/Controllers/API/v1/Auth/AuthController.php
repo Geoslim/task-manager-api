@@ -23,6 +23,7 @@ class AuthController extends Controller
     }
 
     /**
+     * @route api/v1/auth/register
      * @param RegisterRequest $request
      * @return JsonResponse
      */
@@ -41,6 +42,7 @@ class AuthController extends Controller
     }
 
     /**
+     * @route api/v1/auth/login
      * @param LoginRequest $request
      * @return JsonResponse
      */
@@ -59,6 +61,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * @route api/v1/auth/logout
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function logout(Request $request): JsonResponse
     {
         try {
